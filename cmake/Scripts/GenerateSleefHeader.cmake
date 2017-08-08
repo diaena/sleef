@@ -20,9 +20,13 @@ endif(OPTION_SHOW_CONFIG)
   set(run8 4 8 __m256d __m256 __m128i __m256i __AVX__ avx2)
   set(run9 8 16 __m512d __m512 __m256i __m512i __AVX512F__ avx512f)
 
+  set(run0 2 4 float64x2_t float32x4_t int32x2_t int32x4_t _ARM_NEON__ advsimd)
+
 # TODO: Change condition of generation to use a COMPILER_SUPPORTS_* flag
 if(SLEEF_ARCH_X86)
   list(APPEND PARAMS_POINTER_LIST run1 run2 run3 run4 run5 run6 run7 run8 run9)
+elseif(SLEEF_ARCH_AARCH64)
+  list(APPEND PARAMS_POINTER_LIST run0)
 endif()
 
 foreach(params_set ${PARAMS_POINTER_LIST})
