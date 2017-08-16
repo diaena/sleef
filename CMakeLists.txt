@@ -43,6 +43,9 @@ configure_file(
 # Generates object file (shared library) `libsleef`
 # Defined in src/libm/CMakeLists.txt via command add_library
 set(TARGET_LIBSLEEF "sleef")
+# Generates the sleef.h headers and all the rename headers
+# Defined in src/libm/CMakeLists.txt via custom commands and a custom target
+set(TARGET_HEADERS "headers")
 # Generates executable files for running the test suite
 # Defined in src/libm-tester/CMakeLists.txt via command add_executable
 set(TARGET_TESTER "tester")
@@ -53,6 +56,7 @@ set(TARGET_IUTAVX "iutavx")
 set(TARGET_IUTFMA4 "iutfma4")
 set(TARGET_IUTAVX2 "iutavx2")
 set(TARGET_IUTAVX2128 "iutavx2128")
+set(TARGET_IUTAVX512F "iutavx512f")
 set(TARGET_IUTADVSIMD "iutadvsimd")
 # Runs the test suite
 # Depends on targets: iut, tester
